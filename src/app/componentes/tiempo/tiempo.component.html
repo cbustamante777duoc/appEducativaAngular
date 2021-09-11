@@ -4,14 +4,16 @@
     <h4>Consulta del tiempo por cuidad</h4>
 
     <div class="col-lg-6 alineacion card">
-      <form>
+      <!--uso del formGroup que va a activar el metodo consultar-->
+      <form [formGroup]="formulario" (ngSubmit)="consultar()">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Cuidad</label>
+          <label for="exampleInputEmail1" class="form-label">Ciudad</label>
           <input
             type="text"
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            formControlName="ciudad"
           />
         </div>
         <div class="mb-3">
@@ -20,6 +22,7 @@
             type="text"
             class="form-control"
             id="exampleInputPassword1"
+            formControlName="codigo"
           />
         </div>
         <div class="mb-3">
@@ -33,7 +36,7 @@
       <div class="card margen">
         <ul>
           <li>Temperatura:</li>
-          <li>cuidad:</li>
+          <li>ciudad:</li>
           <li>latitud:</li>
           <li>longitud:</li>
         </ul>
