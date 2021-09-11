@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-tiempo',
@@ -25,14 +25,14 @@ export class TiempoComponent implements OnInit {
 
   iniciaFormulario(){
     this.formulario = this.formbuilder.group({
-      ciudad:['Santiago'],
-      codigo:['CL']
+      ciudad:['',[Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
+      codigo:['',[Validators.required,Validators.pattern('^[a-zA-Z ]*$')]]
     })
   }
 
 
   consultar(){
-    console.log("datos ",this.formulario.value);
+    console.log("datos ",this.formulario);
 
   }
 
