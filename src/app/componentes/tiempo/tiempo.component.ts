@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TiempoComponent implements OnInit {
 
   formulario: FormGroup;
+  testNumero:number;
 
   constructor(private formbuilder:FormBuilder) {
 
@@ -26,7 +27,8 @@ export class TiempoComponent implements OnInit {
   iniciaFormulario(){
     this.formulario = this.formbuilder.group({
       ciudad:['',[Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
-      codigo:['',[Validators.required,Validators.pattern('^[a-zA-Z ]*$')]]
+      codigo:['',[Validators.required,Validators.pattern('^[a-zA-Z ]*$')]],
+      // testNumero:[0,[Validators.required,Validators.min(1),Validators.max(20)]]
     })
   }
 
