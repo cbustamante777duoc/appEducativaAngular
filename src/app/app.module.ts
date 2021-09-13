@@ -7,18 +7,20 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { MainComponent } from './componentes/main/main.component';
 import { TiempoComponent } from './componentes/tiempo/tiempo.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MainComponent,
-    TiempoComponent
+    TiempoComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
