@@ -18,7 +18,6 @@ export class TiempoComponent implements OnInit {
   latitud:any;
   longitud:any;
   descripcion:any;
-  icon:any;
 
   constructor(private formbuilder:FormBuilder,private _temperatura:TemperaturaService) {
 
@@ -54,7 +53,6 @@ export class TiempoComponent implements OnInit {
         this.latitud = this.tiempo.coord.lat;
         this.longitud = this.tiempo.coord.lon;
         this.descripcion = this.tiempo.weather[0].description;
-        this.icon = this.tiempo.weather[0].icon;
         console.log(respuesta);
       })
   }
