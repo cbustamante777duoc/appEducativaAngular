@@ -8,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
 
   ciudades:string[] = ['santiago','buenos aires','temuco','lima','cusco','la paz','quito','patagonia'];
+  showCiudad:boolean = true;
+
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  mostrar(){
+    this.showCiudad = !this.showCiudad;
   }
 
 }

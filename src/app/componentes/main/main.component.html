@@ -1,6 +1,14 @@
-<div class="container">
+<!--Si es true muestra las ciudades-->
+<div *ngIf="showCiudad" class="container">
   <p>Ciudades</p>
   <ul *ngFor="let item of ciudades">
     <li>{{item|titlecase}}</li>
   </ul>
+</div>
+
+<br>
+
+<div class="container">
+  <button class="btn btn-primary" (click)="mostrar()" *ngIf="showCiudad">Esconder ciudades</button>
+  <button class="btn btn-primary" (click)="mostrar()" *ngIf="!showCiudad">Mostrar ciudades</button>
 </div>
