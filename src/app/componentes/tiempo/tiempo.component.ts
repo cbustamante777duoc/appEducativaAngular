@@ -12,12 +12,14 @@ export class TiempoComponent implements OnInit {
   formulario: FormGroup;
   testNumero:number;
   tiempo:any;
-  name:any;
-  temperatura:any;
-  humedad:any;
-  latitud:any;
-  longitud:any;
-  descripcion:any;
+  name:string;
+  temperatura:number;
+  humedad:number;
+  latitud:number;
+  longitud:number;
+  descripcion:string;
+  showError:boolean;
+  mensajeError:string;
 
   constructor(private formbuilder:FormBuilder,private _temperatura:TemperaturaService) {
 
@@ -42,6 +44,7 @@ export class TiempoComponent implements OnInit {
 
 
   consultar(){
+    this.showError = false;
     console.log("datos ",this.formulario);
 
     this._temperatura.getEstadoTiempo(this.formulario.get('ciudad').value,this.formulario.get('codigo').value)
@@ -54,7 +57,13 @@ export class TiempoComponent implements OnInit {
         this.longitud = this.tiempo.coord.lon;
         this.descripcion = this.tiempo.weather[0].description;
         console.log(respuesta);
-      })
+      },
+       error =>{
+
+        this.showError = true;
+        this.mensajeError = "Error al consultar el tiempo. Intentelo nuevamente";
+
+       })
   }
 
 }
