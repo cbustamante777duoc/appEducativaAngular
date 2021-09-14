@@ -2,7 +2,7 @@
   <div class="row mb-3">
     <br>
     <h4>Consulta del tiempo por cuidad</h4>
-
+    <h5> fecha de hoy: {{fechaActual | date:'MMM d, y'}}</h5>
     <!--Formulario-->
     <div class="col-lg-6 alineacion card">
       <!--uso del formGroup que va a activar el metodo consultar-->
@@ -40,18 +40,19 @@
         </div>
       </form>
       <p class="text-danger" *ngIf="showError">{{mensajeError}}</p>
+
     </div>
 
     <!--Card-->
     <div class="col-lg-6 alineacion  ">
       <div class="card margen">
         <ul>
-          <li>ciudad:{{name}}</li>
+          <li>ciudad:{{name | titlecase }} </li>
           <li>Temperatura:{{temperatura}}</li>
           <li>Humedad:{{humedad}}</li>
-          <li>Latitud:{{latitud}}</li>
+          <li>Latitud:{{latitud | number : '1.0-2'}}</li>
           <li>Longitud:{{longitud}}</li>
-          <li>Descripcion:{{descripcion}}</li>
+          <li>Descripcion:{{descripcion | titlecase }}</li>
         </ul>
       </div>
     </div>

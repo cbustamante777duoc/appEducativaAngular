@@ -20,6 +20,7 @@ export class TiempoComponent implements OnInit {
   descripcion:string;
   showError:boolean;
   mensajeError:string;
+  fechaActual = new Date();
 
   constructor(private formbuilder:FormBuilder,private _temperatura:TemperaturaService) {
 
@@ -43,6 +44,7 @@ export class TiempoComponent implements OnInit {
   }
 
 
+
   consultar(){
     this.showError = false;
     console.log("datos ",this.formulario);
@@ -51,11 +53,12 @@ export class TiempoComponent implements OnInit {
       .subscribe(respuesta =>{
         this.tiempo = respuesta;
         this.name = this.tiempo.name;
-        this.temperatura = this.tiempo.main.temp;
         this.humedad = this.tiempo.main.humidity;
         this.latitud = this.tiempo.coord.lat;
         this.longitud = this.tiempo.coord.lon;
         this.descripcion = this.tiempo.weather[0].description;
+        this.temperatura = this.tiempo.main.temp ;
+        this.convertirACelcius(this.temperatura);
         console.log(respuesta);
       },
        error =>{
@@ -64,6 +67,14 @@ export class TiempoComponent implements OnInit {
         this.mensajeError = "Error al consultar el tiempo. Intentelo nuevamente";
 
        })
+  }
+
+  convertirACelcius(temperaturaActual){
+
+    temperaturaActual = this.temperatura * 9.0 / 5.0 + 32;
+
+    return temperaturaActual;
+
   }
 
 }
