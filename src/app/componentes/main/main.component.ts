@@ -9,7 +9,7 @@ export class MainComponent implements OnInit {
 
   ciudades:string[] = ['santiago','buenos aires','temuco','lima','cusco','la paz','quito','patagonia'];
   showCiudad:boolean = true;
-
+  changeCss:boolean = true;
 
   constructor() { }
 
@@ -18,6 +18,10 @@ export class MainComponent implements OnInit {
 
   mostrar(){
     this.showCiudad = !this.showCiudad;
+  }
+
+  cambioCss(){
+    this.changeCss = !this.changeCss;
   }
 
 }

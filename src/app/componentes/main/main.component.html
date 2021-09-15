@@ -12,3 +12,14 @@
   <button class="btn btn-primary" (click)="mostrar()" *ngIf="showCiudad">Esconder ciudades</button>
   <button class="btn btn-primary" (click)="mostrar()" *ngIf="!showCiudad">Mostrar ciudades</button>
 </div>
+<br>
+<div class="container">
+  <h4>Ngclass</h4>
+  <br>
+   <div [ngClass]="{'alert-primary':changeCss, 'alert-warning':!changeCss}" class="alert text-align-center" role="alert">
+     Alerta primaria
+   </div>
+   <div>
+    <button class="btn btn-primary" (click)="cambioCss()">cambio de css</button>
+  </div>
+</div>
